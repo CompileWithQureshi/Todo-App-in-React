@@ -15,6 +15,9 @@ function TodoList() {
     const handleDelete = (index) => {
         setTodos(todos.filter((todo, i) => i !== index));
     }
+    const handelDelete = () => {
+        setTodos([])
+    }
 
     return (
         <div className='container'>
@@ -29,8 +32,11 @@ function TodoList() {
                         <li key={index} >
                             {todo}
                             <button onClick={() => handleDelete(index)}>Delete</button>
+
                         </li>
+
                     ))}
+                    {todos.length > 1 && <button onClick={() => handelDelete()}>Delete All</button>}
                 </ul>
             </div>
         </div>
